@@ -1,17 +1,27 @@
 import Nav from './components/Nav.jsx';
-import Header from './components/Header';
-import Landing from './components/Landing.jsx';
-import Highlights from './components/Highlights.jsx';
-import Featured from './components/Featured.jsx';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Footer from './components/Footer.jsx';
+import Home from './pages/Home.jsx';
+import Books from './pages/Books.jsx';
 
 function App() {
   return (
-    <div className=''>
+    <Router>
+      <div className='App'>
       <Nav />
-      <Landing />
-      <Highlights />
-      <Featured />
-    </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/books" element={<Books />} />
+        {/* <Route path="/books/:id" element={} /> */}
+        {/* <BookInfo books={books} addToCart={addToCart} cart={cart} /> */}
+        
+        
+        {/* Add Cart ROUTe */}
+        
+      </Routes>
+      <Footer />
+      </div>
+    </Router>
   );
 }
 
