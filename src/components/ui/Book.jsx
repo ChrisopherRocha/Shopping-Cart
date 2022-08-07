@@ -1,27 +1,25 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { Link } from 'react-router-dom'
+import Price from './Price.jsx';
+import Rating from './Rating.jsx'
 
 const Book = ({ book }) => {
     return (
         <div className='book'>
-            <a href="">
+            <Link to="">
                 <figure className='book__img--wrapper'>
                     <img src={book.url} alt="" className='book__img' />
                 </figure>
-            </a>
+            </Link>
             <div className='book__title'>
-                <a href="/" className='book__title--link'>
+                <Link to="/" className='book__title--link'>
                     {book.title}
-                </a>
+                </Link>
             </div>
-            <div className='book__ratings'>
-                {
-                    new Array(Math.floor(book.rating)).fill(0).map((_, index) => <FontAwesomeIcon icon="star" key={index} />)
-                }
-                {
-                    Number.isInteger(book.rating) ? '' : <FontAwesomeIcon icon="star-half-alt"/>
-                }
-            </div>
+            <Rating rating={book.rating} />
+            {/* 
+                Paste this into Price.jsx, 2) destructure {} salePrice and originalPrice in the parameters of const Price and delete the book in book.salePrice and book.originalPrice
             <div className='book__price'>
                 {
                     book.salePrice ? (
@@ -33,9 +31,8 @@ const Book = ({ book }) => {
                         <>${book.originalPrice.toFixed(2)}</>
                     )
                 }
-                
-                
-            </div>
+            </div> */}
+            <Price salePrice={book.salePrice} originalPrice={book.originalPrice}/>
         </div>
     )
 }
