@@ -17,7 +17,8 @@ function App() {
         {/* what is books={books} for? and keep in mind it imports books from data.js */}
         <Route path="/books/:id" element={<BookInfo books={books} />} />
         {/* <BookInfo books={books} addToCart={addToCart} cart={cart} /> */}
-        
+        <Route path="/cart" element={<BookInfo books={books} />} />
+
         
         {/* Add Cart ROUTe */}
         
