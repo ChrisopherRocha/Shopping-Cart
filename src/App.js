@@ -13,37 +13,25 @@ function App() {
   const [cart, setCart] = useState([])
 
   function addToCart(book) {
-    setCart([...cart, book])
+    setCart([...cart, {...book, quantity: 1}])
+  }
+
+  function changeQuantity(book, quantity) {
+    setCart(cart.map(item => 
+      item.id === book.id 
+        ?
+          {
+            ...item,
+            quantity: +quantity
+          } 
+          : item
+      
+    ))
   }
 
   useEffect(() => {
     console.log(cart)
   }, [cart])
-
-  // function addToCart(book) {
-  //   // console.log("added to cart", book)
-  //   const dupeItem = cart.find(item => +item.id === +book.id)
-  //   if (dupeItem) {
-  //     setCart(cart.map(item => {
-  //       if (item.id === dupeItem.id) {
-  //         return {
-  //           ...item,
-  //           quantity: item.quantity + 1,
-  //         }
-  //       } else {
-  //         return item;
-  //       }
-  //     })
-  //     )
-  //   } else {
-  //     setCart([...cart, { ...book, quantity: 1}])
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   console.log(cart)
-
-  // }, [cart])
 
   return (
     <Router>
@@ -55,7 +43,7 @@ function App() {
         {/* what is books={books} for? and keep in mind it imports books from data.js */}
         <Route path="/books/:id" element={<BookInfo books={books} addToCart={addToCart} cart={cart}/>} />
         {/* <BookInfo books={books} addToCart={addToCart} cart={cart} /> */}
-        <Route path="/cart" element={<Cart books={books} cart={cart} />} />
+        <Route path="/cart" element={<Cart books={books} cart={cart} changeQuantity={changeQuantity} />} />
 
         
         {/* Add Cart ROUTe */}
