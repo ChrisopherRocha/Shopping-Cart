@@ -37,7 +37,6 @@ const Nav = ({ numberOfItems }) => {
                         </Link>
                         {
                             numberOfItems > 0 && <span className='cart__length'>{numberOfItems}</span>
-
                         }
                     </li>
                 </ul>
