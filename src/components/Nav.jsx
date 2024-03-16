@@ -15,7 +15,7 @@ const Nav = ({ numberOfItems }) => {
         <nav>
             <div className='nav__container'>
                 <Link to='/'>
-                    <h1>L O G O</h1>
+                    <h1>Chris's BookStore</h1>
                 </Link>
                 <ul className='nav__links'>
                     <li className='nav__list'>

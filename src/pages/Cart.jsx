@@ -11,16 +11,6 @@ const Cart = ({ cart, changeQuantity, removeItem }) => {
         return price
     }
 
-    // const [total, setTotal] = useState()
-    // useEffect(() => {
-    //     let price = 0;
-    //     cart.forEach((item) => {
-    //         price += +(item.salePrice || item.originalPrice).toFixed(2)
-    //     })
-    //     setTotal(price)
-    // }, [cart])
-    
-    
 
   return (
     <div id="books__body">
@@ -91,7 +81,7 @@ const Cart = ({ cart, changeQuantity, removeItem }) => {
               <button
                 className="btn btn__checkout no-cursor"
                 onClick={() =>
-                  alert("OH NO I NEED A CHECKOUT!!! YOUVE BEEN SNOOOBED")
+                  alert("Check Out Coming Soon!")
                 }
               >
                 Proceed to Checkout
